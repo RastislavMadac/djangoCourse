@@ -2,28 +2,27 @@ from django import forms
 
 from django.contrib.auth.models import User 
 
-from django.contrib.auth.forms import UserCreationForm 
+from django.contrib.auth.forms import UserCreationForm,AuthenticationForm 
 
  
  
 
- 
- 
+class RegistrationForm(UserCreationForm):
+    username = forms.CharField(label='Uživatelské jméno')
+    email = forms.EmailField(label='E-mail')
+    password1 = forms.CharField(label='Heslo', widget=forms.PasswordInput)
+    password2 = forms.CharField(label='Potvrzení hesla', widget=forms.PasswordInput)
 
-class CustomUserCreationForm(UserCreationForm): 
 
-    #je tam username password1 pasword2  a overuje ci su rovnake
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password1', 'password2']
 
-    email = forms.EmailField(required=True) 
 
- 
- 
+class CustomLoginForm(AuthenticationForm): 
 
-    class Meta: 
-        # vnorena trieda pouziva sa vo formulenach a modeloch na stavuje pravidla  ake policka ma zobrazit
-        model = User 
+    username = forms.CharField(label='Uživvvvvelské jméno') 
 
-        fields = ['username', 'email', 'password1', 'password2'] 
+    password = forms.CharField(label='Heslo', widget=forms.PasswordInput) 
 
- 
  
