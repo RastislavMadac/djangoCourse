@@ -1,0 +1,29 @@
+{% extends "base.html" %} 
+
+ 
+ 
+
+{% block title %}Premiantni studenti{% endblock title %} 
+
+ 
+ 
+
+{% block content %} 
+<a href="{% url 'home_page' %}">domov</a> 
+<h1>Toto su premiantni studenti</h1>
+    <ul> 
+
+        {% for student in all_premiants %} 
+
+            <li>{{ student.first_name }} {{ student.second_name }}: {{ student.email }}
+                           
+
+            </li> 
+
+        {% endfor %} 
+
+    </ul> 
+
+{% endblock content %} 
+
+ 

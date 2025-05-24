@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Editácia knihy{% endblock title %}
+
+
+{% block content %}
+
+    <h1>Úprava knihy</h1>
+    <form method='POST'>
+        {% csrf_token %}
+        <label for="book-name">Názov knihy</label>
+        <input type="text" id='book-name' name='book-name' value=' {{book.name}} '>
+
+        <label for="book-price">Cena Knihy</label>
+        <input type="text" id='book-price' name='book-price' value='{{book.price}}'>
+        <button>Uložiť zmeny</button>
+
+    </form>
+
+    <a href=" {% url 'all-books-url' %} ">Späť na zoznam kníh</a>
+
+
+{% endblock  %}

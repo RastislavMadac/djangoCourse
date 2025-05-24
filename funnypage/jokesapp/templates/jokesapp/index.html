@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'jokesapp/style.css' %}"> 
+</head>
+<body>
+    
+    
+        </section> 
+        <section class="form"> 
+            <a href="{% url 'all-jokes-url' %}">Všechny vtipy</a> 
+            <form method='POST' action='/'> 
+                {% csrf_token %} 
+                {% for one_field in jokeForm  %}
+                    <div class="form-inputs" {% if one_field.errors %}errors{% endif %}>
+                        {{ one_field.errors}}
+                        {{ one_field}}
+
+                    </div>
+                {% endfor %}
+            
+                    
+                <button>Odeslat</button> 
+        
+            </form> 
+    
+    </body> 
+    
+     
+</body>

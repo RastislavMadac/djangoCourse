@@ -1,0 +1,20 @@
+{% extends "base.html" %} 
+
+ 
+ 
+
+{% block title %}Všechny knihy{% endblock title %} 
+
+ 
+ 
+
+{% block content %} 
+    <h1>Zoznam všetkých kníh</h1>
+    <ul> 
+         <li>{{ all_books.title }} - počet stran: {{ all_books.pages }}, autor: {{ all_books.author}}</li> 
+
+    </ul> 
+
+{% endblock content %} 
+
+ 

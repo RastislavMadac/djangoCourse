@@ -1,0 +1,38 @@
+{% extends "base.html" %} 
+{% load static %}
+ 
+ 
+
+{% block title %}Všechny filmy{% endblock title %} 
+
+ 
+ 
+
+{% block styles %}<link rel="stylesheet" href="{% static 'movies/index.css' %}"> {% endblock styles %} 
+
+ 
+ 
+
+{% block content %}
+<section class="movies"> 
+    <ul> 
+    
+        {% for one_movie in all_movies %} 
+
+            <li>{{ one_movie.title }} 
+                {% if one_movie.is_for_adults %}
+                    Iba pre dospelích
+            
+                {% else %}
+                    pre všetkých
+                {% endif %}
+             </li>
+                
+        {% endfor %} 
+
+    </ul> 
+
+</section>
+{% endblock content %} 
+
+ 
